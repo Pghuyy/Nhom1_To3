@@ -1,6 +1,0 @@
-{
-  "name": "BLUE TRACE – Hành Trình Bảo Vệ Môi Trường Nước",
-  "description": "Trải nghiệm kể chuyện tương tác theo phong cách phim tài liệu về sự cần thiết của việc bảo vệ môi trường nước.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
