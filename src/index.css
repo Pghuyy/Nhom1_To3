@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-bg-canvas: #F5FBFF;
+  --color-surface: #FFFFFF;
+  --color-powder-blue: #DDF3FC;
+  --color-aqua: #B9E5F5;
+  --color-sky-cyan: #91D5ED;
+  --color-mint: #D7F4EA;
+  --color-text-primary: #173B52;
+  --color-text-secondary: #557386;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: #F5FBFF;
+    color: #173B52;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    min-height: 100dvh;
+    overflow-x: hidden;
+    background-color: #F5FBFF;
+    color: #173B52;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Liquid Glass surface: light, crisp, high-legibility */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(145, 213, 237, 0.55);
+  box-shadow: 0 10px 30px -10px rgba(23, 59, 82, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.liquid-glass-cta {
+  background: linear-gradient(135deg, rgba(185, 229, 245, 0.92) 0%, rgba(145, 213, 237, 0.96) 55%, rgba(215, 244, 234, 0.92) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 24px -8px rgba(23, 59, 82, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.liquid-glass-cta:hover {
+  background: linear-gradient(135deg, rgba(145, 213, 237, 0.98) 0%, rgba(185, 229, 245, 0.98) 60%, rgba(215, 244, 234, 0.98) 100%);
+}
+
+/* Custom sleek horizontal scrollbar for desktop swipe gallery */
+.gallery-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gallery-scroll::-webkit-scrollbar-track {
+  background: #DDF3FC;
+  border-radius: 9999px;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb {
+  background: #91D5ED;
+  border-radius: 9999px;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes water-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.03);
+  }
+  50% {
+    transform: translate3d(-1%, -0.6%, 0) scale(1.06);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.03);
+  }
+}
+
+@keyframes caustic-shimmer {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes swipe-nudge {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+.animate-water-drift {
+  animation: water-drift 22s ease-in-out infinite;
+}
+
+.animate-caustic-shimmer {
+  animation: caustic-shimmer 9s ease-in-out infinite;
+}
+
+.animate-swipe-nudge {
+  animation: swipe-nudge 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-water-drift,
+  .animate-caustic-shimmer,
+  .animate-swipe-nudge {
+    animation: none !important;
+    transform: none !important;
+  }
+}
